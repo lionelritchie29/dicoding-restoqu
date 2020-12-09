@@ -1,6 +1,5 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable new-cap */
-const path = require('path');
 const {merge} = require('webpack-merge');
 const common = require('./webpack.common');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
