@@ -1,0 +1,60 @@
+footer {
+  color: #fff;
+
+  .footer-top {
+    background: lighten($color: $primary-color, $amount: 5);
+    padding: 2rem 1rem;
+
+    &__about {
+      h2 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        margin-top: 0;
+      }
+
+      @include md {
+        width: 50%;
+      }
+    }
+
+    &__links {
+      h2 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+          margin-bottom: 1.2rem;
+
+          a {
+            color: #fff;
+            padding: 14px 0;
+          }
+        }
+      }
+
+      @include md {
+        width: 30%;
+        margin-left: 20%;
+      }
+    }
+
+    @include md {
+      display: flex;
+    }
+  }
+
+  .footer-bottom {
+    background-color: $primary-color;
+    text-align: center;
+    padding: 1rem 0;
+  }
+}

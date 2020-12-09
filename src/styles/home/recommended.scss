@@ -1,0 +1,55 @@
+.recommended {
+  margin-bottom: 2rem !important;
+  margin-top: 3rem !important;
+
+  h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+
+    @include md {
+      text-align: left;
+    }
+  }
+
+  &__content {
+    div {
+      overflow-x: auto;
+      white-space: nowrap;
+
+      .recommended-image {
+        margin-right: 1rem;
+        display: inline-block;
+        width: 40%;
+        text-align: center;
+        overflow: hidden;
+
+        div {
+          img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3),
+              -2px -2px 5px rgba(0, 0, 0, 0.1);
+          }
+        }
+
+        h3 {
+          margin: 0;
+          font-weight: 500;
+          font-size: 1rem;
+        }
+
+        a {
+          text-align: right;
+          color: $primary-color;
+          padding: 14px 2px;
+        }
+
+        @include md {
+          width: 20%;
+        }
+      }
+    }
+  }
+}

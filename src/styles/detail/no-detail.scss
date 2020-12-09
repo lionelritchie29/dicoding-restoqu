@@ -1,0 +1,83 @@
+.detail-not-found {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        width: 90%;
+        text-align: center;
+        background-color: lighten($primary-color, 30);
+        border-radius: 0.5rem;
+        padding: 3rem 0;
+
+        span{
+            text-align: center;
+            font-size: 5rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: red !important;
+        }
+
+        @include md{
+            width: 60%;
+        }
+    }
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    border-radius: 0.3rem;
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Could be more or less, depending on screen size */
+    // height: 50%;
+    text-align: center;
+
+    #modal-emoji {
+        font-size: 3rem;
+    }
+
+    .close-modal {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+
+      &:hover,
+      &:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+
+    p {
+      text-align: center;
+    }
+
+    @include md{
+        width: 60%;
+    }
+  }
+  
+  

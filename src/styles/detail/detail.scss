@@ -1,0 +1,148 @@
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+
+  &__head {
+    &__image {
+      padding: 0.5rem;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 0.25rem;
+      img {
+        width: 100%;
+        border-radius: 0.25rem;
+      }
+    }
+
+    &__info {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+
+      &__rating {
+        display: flex;
+        align-items: center;
+        margin-top: 0.5rem;
+  
+        img {
+          width: 8%;
+        }
+  
+        span {
+          font-weight: 600;
+          margin-left: 0.75rem;
+          margin-right: 0.25rem;
+        }
+      }
+
+      button {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 0 1rem;
+        border: none;
+        background-color: $primary-color;
+        color: #fff;
+        border-radius: 0.3rem;
+        display: none;
+
+        &:hover{
+          background-color: lighten($primary-color, 5);
+          cursor: pointer;
+        }
+
+        @include md{
+          display: block;
+        }
+      }
+    }
+    
+
+    @include md {
+      width: 48%;
+    }
+  }
+
+  &__info {
+    &__additional {
+      &__accordion {
+        &__head {
+          background-color: #eab398;
+          padding: 0.75rem 1rem;
+          min-height: 44px;
+          min-width: 44px;
+          color: #fff;
+          border: none;
+          border-bottom: 2px solid $primary-color;
+          width: 100%;
+
+          &:hover{
+            background-color: darken(#eab398, 2);
+            cursor: pointer;
+          }
+        }
+
+        &__body {
+          background-color: #fafafa;
+          padding: 0.75rem 1rem;
+          display: none;
+
+          ul {
+            list-style: none;
+            padding: 0;
+            border: 1px solid #ccc;
+            margin: 0;
+
+            li {
+              border-bottom: 1px solid #ccc;
+              padding: 0.5rem;
+            }
+
+            li:last-child {
+              border-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+
+    @include md {
+      width: 48%;
+    }
+  }
+
+  @include md {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.active{
+  display: block;
+}
+
+#add-fav-btn{
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  border-radius: 100%;
+  border: none;
+  background-color: $primary-color;
+  color: #fff;
+  font-size: 3rem;
+  padding: 0 1rem 0.5rem 1rem;
+  min-height: 44px;
+  min-width: 44px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  &:hover{
+    cursor: pointer;
+  }
+  &:focus{
+    background-color: lighten($primary-color, 5);
+  }
+
+  @include md{
+    display: none;
+  }
+}

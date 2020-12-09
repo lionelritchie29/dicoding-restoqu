@@ -1,0 +1,34 @@
+.card {
+    padding: 0.5rem 0.75rem;
+    background: #eee;
+    border-radius: 0.3rem;
+    margin-bottom: 2rem;
+
+    &__profile {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 10%;
+        border-radius: 100%;
+
+        @include md {
+          width: 5%;
+        }
+      }
+
+      span {
+        margin-left: 0.75rem;
+      }
+    }
+
+    &__content {
+      min-height: 5rem;
+      font-size: 0.9rem;
+    }
+
+    &__date {
+      display: block;
+      text-align: right;
+    }
+  }

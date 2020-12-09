@@ -1,0 +1,113 @@
+.discover {
+  margin-bottom: 2rem !important;
+  margin-top: 3rem !important;
+
+  h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+
+    @include md {
+      text-align: left;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+
+    .restaurant {
+      //   border: 1px solid #999;
+      border-radius: 0.5rem;
+      box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3),
+        -2px -2px 5px rgba(0, 0, 0, 0.1);
+
+      &__image {
+        img {
+          height: 15rem;
+          border-top-left-radius: 0.5rem;
+          border-top-right-radius: 0.5rem;
+          width: 100%;
+        }
+      }
+
+      &__info {
+        padding: 0 1rem 1.2rem 1rem;
+        margin-top: -2rem;
+
+        &__circle {
+          div {
+            display: flex;
+            justify-content: center;
+
+            img {
+              width: 17%;
+              border-radius: 100%;
+              border: 5px solid $primary-color;
+            }
+          }
+        }
+
+        &__city {
+          text-align: center;
+          letter-spacing: 0.3rem;
+          margin-top: 1rem;
+        }
+
+        h3 {
+          text-align: center;
+          font-weight: 600;
+          font-size: 1.2rem;
+          margin: 0;
+        }
+
+        p {
+          font-size: 0.9rem;
+          text-align: justify;
+          line-height: 1.4;
+        }
+
+        &__more {
+          text-align: center;
+          a {
+            color: $primary-color;
+            padding: 14px 2px;
+          }
+        }
+
+        &__rating {
+          margin-top: 2rem;
+          text-align: center;
+          font-weight: 700;
+          font-size: 1.5rem;
+
+          img {
+            width: 10%;
+          }
+
+          span {
+            position: relative;
+            bottom: 0.3rem;
+          }
+        }
+      }
+    }
+
+    @include sm {
+      max-width: 70%;
+      margin: 0 auto;
+    }
+
+    @include md {
+      max-width: 100%;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+  }
+}

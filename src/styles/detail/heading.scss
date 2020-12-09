@@ -1,0 +1,30 @@
+.detail-heading {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  text-align: center;
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    img {
+      width: 30%;
+      border-radius: 100%;
+      border: 5px solid $primary-color;
+    }
+
+    @include md {
+      display: none;
+    }
+  }
+
+  span {
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+  }
+
+  h1 {
+    margin: 0;
+  }
+}

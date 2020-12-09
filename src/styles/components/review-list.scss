@@ -1,0 +1,53 @@
+.detail-review {
+  width: 90%;
+  margin: 0 auto;
+
+  &__add {
+    h2 {
+      margin: 0;
+    }
+    &__form {
+      width: 100%;
+      
+      &__name-input {
+        margin-top: 1rem;
+        input {
+          width: 100%;
+          padding: 0.5rem 0 0.5rem 0.3rem;
+        }
+      }
+
+      &__message-input {
+        margin-top: 1rem;
+        textarea {
+          width: 100%;
+          padding: 0.5rem 0 0.5rem 0.3rem;
+        }
+      }
+
+      &__button {
+        text-align: right;
+        margin: 0.5rem 0;
+
+        button {
+          border: none;
+          color: #fff;
+          min-height: 44px;
+          min-width: 44px;
+          padding: 0 1rem;
+          border-radius: 0.3rem;
+          background-color: lighten($primary-color, 2);
+          
+          &:hover{
+            background-color: lighten($primary-color, 5);
+            cursor: pointer;
+          }
+        }
+      }
+
+      label {
+        margin-top: 1rem;
+      }
+    }
+  }
+}

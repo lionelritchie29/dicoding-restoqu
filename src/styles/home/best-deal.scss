@@ -1,0 +1,81 @@
+.best-deal {
+  margin-bottom: 2rem !important;
+  margin-top: 3rem !important;
+
+  h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+
+    @include md {
+      text-align: left;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 0.5rem;
+
+    .best-menu {
+      display: flex;
+      padding: 1rem 1.25rem;
+      color: #fff;
+      border-radius: 0.3rem;
+
+      &__info {
+        width: 50%;
+
+        &__restaurant {
+          display: block;
+          font-size: 0.8rem;
+          font-style: italic;
+        }
+
+        h3 {
+          margin: 0;
+          font-size: 1.7rem;
+          margin-bottom: 0.5rem;
+        }
+
+        &__price {
+          display: block;
+          text-decoration: line-through;
+          font-size: 1rem;
+        }
+
+        &__discount {
+          display: block;
+          font-size: 1.2rem;
+        }
+
+        a {
+          color: #fff;
+          font-size: 0.75rem;
+          padding: 15px 0;
+        }
+      }
+
+      &__image {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    @include sm {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 1rem;
+    }
+  }
+}
