@@ -12,7 +12,12 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
 const ImageminPngquant = require('imagemin-pngquant');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin =
+  require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -94,8 +99,19 @@ module.exports = {
         },
       ],
     }),
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: 'defer',
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',
+    }),
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.optimize\.css$/g,
+      cssProcessor: require('cssnano'),
+      cssProcessorPluginOptions: {
+        preset: ['default', {discardComments: {removeAll: true}}],
+      },
+      canPrint: true,
     }),
     new FaviconsWebpackPlugin({
       logo: './src/public/images/chef.png',
@@ -169,5 +185,6 @@ module.exports = {
         },
       },
     },
+    minimizer: [new UglifyJsPlugin()],
   },
 };

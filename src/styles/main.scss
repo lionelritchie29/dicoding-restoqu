@@ -21,6 +21,10 @@ body {
   background: #ffffff !important;
 }
 
+main {
+  background: #ffffff !important;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -131,10 +135,6 @@ nav {
   @include lg {
     padding: 0.75rem 2rem;
   }
-}
-
-main {
-  background: #ffffff !important;
 }
 
 .open {
