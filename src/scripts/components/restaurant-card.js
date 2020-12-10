@@ -41,6 +41,7 @@ class RestaurantCard extends HTMLElement {
   _setImage() {
     const imgUrl = this._getImageUrl();
     const imgElement = this.shadowDOM.querySelector('#image');
+    imgElement.setAttribute('loading', 'lazy');
     imgElement.src = imgUrl;
     imgElement.alt = this._item.name;
   }

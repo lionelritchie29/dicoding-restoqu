@@ -3,6 +3,10 @@ import favoriteRestaurantIdb from '../src/scripts/data/favorite-restaurant-idb.j
 import FavoriteButtonController from '../src/scripts/utils/favorite-button-controller.js';
 import * as TestFactories from './helper/testFactories.js';
 
+// pada integration test ini, test click hanya
+// dilakukan kepada button dg id 'add-fav-btn-md'
+// karena untuk tombol 'add-fav-btn' nya melakukan hal yg sama
+
 describe('Favorite a Restaurant', () => {
   it(`should show the favorite button and widget when the restaurant
     has not been favorited yet`, () => {
@@ -40,7 +44,7 @@ describe('Favorite a Restaurant', () => {
     await favoriteRestaurantIdb.deleteRestaurant(1);
   });
 
-  it('should not favorite a restaurant when it has no id', async() => {
+  it('should not favorite a restaurant when it has no id', async () => {
     TestFactories.createFavoriteButtonAndModalTemplate();
 
     document.querySelector('#add-fav-btn-md').dispatchEvent(new Event('click'));

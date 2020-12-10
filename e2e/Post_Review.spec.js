@@ -8,6 +8,8 @@ Feature('Post Review');
 
 Before(async (I) => {
   I.amOnPage('/');
+  // make sure that the 'restaurant-card' element
+  // contains expected data, not skeleton
   I.dontSeeElement('img[alt="recommended skeleton"]');
   const url = await getFirstRestaurantDetailUrl(I);
   I.amOnPage(url);
@@ -30,7 +32,7 @@ const fillAndSubmitReviewForm = async (I) => {
     nameInput.value = 'Tonoy';
     reviewsInput.value = 'Hai apa kabar';
 
-    console.log(form);
+    // give delay before submit
     setTimeout(() => {
       setTimeout(() => {
         form.dispatchEvent(new Event('submit'));

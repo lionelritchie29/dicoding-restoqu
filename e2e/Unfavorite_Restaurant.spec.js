@@ -9,6 +9,8 @@ Feature('Unfavoriting Restaurant');
 
 Before(async (I) => {
   I.amOnPage('/');
+  // make sure that the 'restaurant-card' element
+  // contains expected data, not skeleton
   I.dontSeeElement('img[alt="recommended skeleton"]');
   const url = await getFirstRestaurantDetailUrl(I);
   const testRestaurantNames = await getFirstRestaurantName(I);

@@ -2,6 +2,7 @@
 /* eslint-disable max-len */
 /* eslint-disable linebreak-style */
 /* eslint-disable new-cap */
+
 const assert = require('assert');
 const {getFirstRestaurantDetailUrl} = require('./helpers/getFirstRestaurantDetailUrl');
 const {getFirstRestaurantName} = require('./helpers/getFirstRestaurantName');
@@ -15,6 +16,8 @@ Before((I) => {
 
 Scenario('Favoriting a Restaurant', async (I) => {
   I.amOnPage('/');
+  // make sure that the 'restaurant-card' element
+  // contains expected data, not skeleton
   I.dontSeeElement('img[alt="recommended skeleton"]');
   const url = await getFirstRestaurantDetailUrl(I);
   const testRestaurantNames = await getFirstRestaurantName(I);

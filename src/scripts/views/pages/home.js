@@ -42,17 +42,16 @@ const Home = {
 
   _setHeroImg() {
     const hero = document.querySelector('.hero');
+    const size = this._getSize();
+    const bgImg =
+      `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)),
+       url('images/heros/hero-image_2-${size}.jpg')`;
+    hero.style.backgroundImage = bgImg;
+  },
 
-    let url = '';
-    if (window.innerWidth <= 480) {
-      url = `url('images/heros/hero-image_2-small.jpg')`;
-    } else if (window.innerWidth <= 800) {
-      url = `url('images/heros/hero-image_2-medium.jpg')`;
-    } else {
-      url = `url('images/heros/hero-image_2-large.jpg')`;
-    }
-
-    hero.style.backgroundImage = url;
+  _getSize() {
+    const width = window.innerWidth;
+    return (width <= 480) ? 'small' : (width <= 800) ? 'medium' : 'large';
   },
 };
 
