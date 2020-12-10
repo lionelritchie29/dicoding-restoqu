@@ -12,9 +12,7 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
 const ImageminPngquant = require('imagemin-pngquant');
-
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -45,8 +43,11 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         exclude: [path.resolve(__dirname, 'src/styles/components')],
         use: [
+          // {
+          //   loader: 'style-loader',
+          // },
           {
-            loader: 'style-loader',
+            loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
@@ -93,8 +94,8 @@ module.exports = {
         },
       ],
     }),
-    new ScriptExtHtmlWebpackPlugin({
-      defaultAttribute: 'defer',
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash].css',
     }),
     new FaviconsWebpackPlugin({
       logo: './src/public/images/chef.png',
@@ -150,7 +151,7 @@ module.exports = {
     splitChunks: {
       chunks: 'all',
       minSize: 20000,
-      maxSize: 65000,
+      maxSize: 70000,
       minChunks: 1,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
@@ -162,12 +163,11 @@ module.exports = {
           reuseExistingChunk: true,
         },
         default: {
-          minChunks: 3,
+          minChunks: 2,
           priority: -20,
           reuseExistingChunk: true,
         },
       },
     },
-    minimizer: [new UglifyJsPlugin()],
   },
 };
