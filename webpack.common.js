@@ -9,6 +9,10 @@ const {InjectManifest} = require('workbox-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminMozjpeg = require('imagemin-mozjpeg');
+const ImageminPngquant = require('imagemin-pngquant');
+
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
   output: {
@@ -123,6 +127,16 @@ module.exports = {
           destination: 'icons',
           purpose: 'maskable',
         },
+      ],
+    }),
+    new ImageminWebpackPlugin({
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true,
+        }),
+        ImageminPngquant(),
       ],
     }),
   ],
