@@ -2,7 +2,7 @@ import 'regenerator-runtime';
 import {skipWaiting, clientsClaim} from 'workbox-core';
 import {precacheAndRoute} from 'workbox-precaching/precacheAndRoute';
 import {registerRoute} from 'workbox-routing/registerRoute';
-// import {StaleWhileRevalidate} from 'workbox-strategies';
+import {StaleWhileRevalidate} from 'workbox-strategies';
 import {CacheFirst} from 'workbox-strategies';
 import {ExpirationPlugin} from 'workbox-expiration';
 import {CacheableResponsePlugin} from 'workbox-cacheable-response';
@@ -14,17 +14,6 @@ precacheAndRoute(self.__WB_MANIFEST);
 precacheAndRoute([
   {url: '/manifest.pwa.json', revision: '1'},
 ]);
-
-registerRoute(
-    /^https:\/\/dicoding-restaurant-api\.el\.r\.appspot\.com/,
-    new CacheFirst({
-      cacheName: 'icons',
-      plugins: [
-        new ExpirationPlugin({maxAgeSeconds: 72 * 60 * 60}),
-        new CacheableResponsePlugin({statuses: [0, 200]}),
-      ],
-    }),
-);
 
 registerRoute(
     new RegExp('/assets/'),
@@ -40,12 +29,8 @@ registerRoute(
 
 registerRoute(
     /^https:\/\/dicoding-restaurant-api\.el\.r\.appspot\.com/,
-    new CacheFirst({
+    new StaleWhileRevalidate({
       cacheName: 'restaurant-data',
-      plugins: [
-        new ExpirationPlugin({maxAgeSeconds: 72 * 60 * 60}),
-        new CacheableResponsePlugin({statuses: [0, 200]}),
-      ],
     }),
 );
 

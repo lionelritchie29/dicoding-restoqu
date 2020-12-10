@@ -8,6 +8,9 @@ import registerSw from '../scripts/utils/register-sw.js';
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit.js';
 
+import navHtml from '../templates/nav-footer/nav.html';
+import footerHtml from '../templates/nav-footer/footer.html';
+
 import App from './views/App.js';
 
 const app = new App();
@@ -17,6 +20,9 @@ window.addEventListener('hashchange', () => {
 });
 
 window.addEventListener('load', () => {
+  document.body.innerHTML = navHtml;
+  document.body.innerHTML += '<main id="content-wrap"></main>';
+  document.body.innerHTML += footerHtml;
   const mainElement = document.querySelector('main');
   app.init(mainElement);
   app.renderPage();

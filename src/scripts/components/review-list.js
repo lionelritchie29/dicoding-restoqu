@@ -6,6 +6,7 @@ import RestaurantData from '../data/restaurant-data.js';
 import UrlParser from '../routes/url-parser.js';
 
 const template = templateFactory(html, scss);
+import {createReviewCardSkeleton} from '../utils/skeleton-creator.js';
 
 class RestaurantList extends HTMLElement {
   constructor() {
@@ -13,6 +14,7 @@ class RestaurantList extends HTMLElement {
     this.shadowDOM = this.attachShadow({mode: 'open'});
     this.shadowDOM.appendChild(template.content.cloneNode(true));
     this._container = this.shadowDOM.querySelector('.detail-review__container');
+    this._container.innerHTML = createReviewCardSkeleton(5);
     this.handleReviewForm();
   }
 
@@ -22,6 +24,7 @@ class RestaurantList extends HTMLElement {
   }
 
   render() {
+    this._container.innerHTML = '';
     this._items.forEach((item) => {
       const reviewCardElement = document.createElement('review-card');
       reviewCardElement.item = item;

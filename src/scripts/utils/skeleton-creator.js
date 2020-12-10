@@ -10,4 +10,14 @@ const createRestaurantCardSkeleton = (count) => {
   return cards;
 };
 
-export {createRestaurantCardSkeleton}
+const createReviewCardSkeleton = (count) => {
+  let cards = '';
+
+  for (let i=0; i<count; i++) {
+    cards += '<review-card></review-card>';
+  }
+
+  return cards;
+};
+
+export {createRestaurantCardSkeleton, createReviewCardSkeleton};
