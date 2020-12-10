@@ -95,7 +95,7 @@ module.exports = {
       ],
     }),
     new MiniCssExtractPlugin({
-      filename: 'dist/[name].[hash].css',
+      filename: '[name].[hash].css',
     }),
     new FaviconsWebpackPlugin({
       logo: './src/public/images/chef.png',
@@ -151,7 +151,7 @@ module.exports = {
     splitChunks: {
       chunks: 'all',
       minSize: 20000,
-      maxSize: 100000,
+      maxSize: 70000,
       minChunks: 1,
       maxAsyncRequests: 30,
       maxInitialRequests: 30,
