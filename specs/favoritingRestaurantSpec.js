@@ -40,7 +40,7 @@ describe('Favorite a Restaurant', () => {
     await favoriteRestaurantIdb.deleteRestaurant(1);
   });
 
-  it('should not favorite a restaurant when it has no id', async() => {
+  it('should not favorite a restaurant when it has no id', async () => {
     TestFactories.createFavoriteButtonAndModalTemplate();
 
     document.querySelector('#add-fav-btn-md').dispatchEvent(new Event('click'));

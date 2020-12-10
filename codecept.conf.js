@@ -1,4 +1,5 @@
-const { setHeadlessWhen } = require('@codeceptjs/configure');
+/* eslint-disable linebreak-style */
+const {setHeadlessWhen} = require('@codeceptjs/configure');
 
 // turn on headless mode when running with HEADLESS=true environment variable
 // HEADLESS=true npx codecept run
@@ -11,21 +12,21 @@ exports.config = {
     Puppeteer: {
       url: 'http://localhost:8080',
       show: true,
-      windowSize: '1200x900'
-    }
+      windowSize: '1200x900',
+    },
   },
   include: {
-    I: './steps_file.js'
+    I: './steps_file.js',
   },
   bootstrap: null,
   mocha: {},
   name: 'restaurant-apps-v4',
   plugins: {
     retryFailedStep: {
-      enabled: true
+      enabled: true,
     },
     screenshotOnFail: {
-      enabled: true
-    }
-  }
-}
+      enabled: true,
+    },
+  },
+};

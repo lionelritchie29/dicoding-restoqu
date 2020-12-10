@@ -1,11 +1,9 @@
 /* eslint-disable linebreak-style */
 // Karma configuration
 // Generated on Fri Jul 03 2020 20:15:52 GMT+0700 (Western Indonesia Time)
-
-const webpack = require('webpack');
 const webpackConfig = require('./webpack.common.js');
 
-module.exports = function (config) {
+module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -63,7 +61,8 @@ module.exports = function (config) {
     || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG */
     logLevel: config.LOG_INFO,
 
-    // enable / disable watching file and executing tests whenever any file changes
+    // enable / disable watching file and
+    // executing tests whenever any file changes
     autoWatch: true,
 
     // start these browsers

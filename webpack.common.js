@@ -162,7 +162,7 @@ module.exports = {
           reuseExistingChunk: true,
         },
         default: {
-          minChunks: 5,
+          minChunks: 3,
           priority: -20,
           reuseExistingChunk: true,
         },
