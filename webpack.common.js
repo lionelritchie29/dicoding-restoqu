@@ -63,6 +63,7 @@ module.exports = {
           path.resolve(__dirname, 'src/templates/detail'),
           path.resolve(__dirname, 'src/templates/favorite'),
           path.resolve(__dirname, 'src/templates/skeleton'),
+          path.resolve(__dirname, 'src/templates/nav-footer'),
         ],
         use: ['html-loader'],
       },

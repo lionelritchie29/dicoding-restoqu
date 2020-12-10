@@ -9,8 +9,6 @@ import RestaurantData from '../../data/restaurant-data.js';
 import heroHtml from '../../../templates/home/hero.html';
 import bestDealHtml from '../../../templates/home/best-deal.html';
 import recommendedHtml from '../../../templates/home/recommended.html';
-import loadingHtml from '../../../templates/components/loading.html';
-import {createRestaurantCardSkeleton} from '../../utils/skeleton-creator.js';
 
 import generateBestDeal from '../generate-best-deal.js';
 import generateRecommended from '../generate-recommended.js';
@@ -44,20 +42,17 @@ const Home = {
 
   _setHeroImg() {
     const hero = document.querySelector('.hero');
-    console.log(hero);
 
+    let url = '';
     if (window.innerWidth <= 480) {
-      console.log('sm');
-      hero.style.backgroundImage = `url('images/heros/hero-image_2-small.jpg')`;
+      url = `url('images/heros/hero-image_2-small.jpg')`;
     } else if (window.innerWidth <= 800) {
-      console.log('md');
-      hero.style.backgroundImage =
-          `url('images/heros/hero-image_2-medium.jpg')`;
+      url = `url('images/heros/hero-image_2-medium.jpg')`;
     } else {
-      console.log('lg');
-      hero.style.backgroundImage =
-          `url('images/heros/hero-image_2-large.jpg')`;
+      url = `url('images/heros/hero-image_2-large.jpg')`;
     }
+
+    hero.style.backgroundImage = url;
   },
 };
 

@@ -7,9 +7,9 @@ Feature('Unfavoriting Restaurant');
 
 Before(async (I) => {
   I.amOnPage('/');
-  I.waitForElement('.recommended-image', 5);
+  I.dontSeeElement('img[alt="recommended skeleton"]');
   const url = await getRestaurantDetailUrl(I);
-  const testRestaurantNames = 'Melting Pot';
+  const testRestaurantNames = await getFirstRestaurantNames(I);
 
   I.amOnPage(url);
   I.seeElement('#add-fav-btn-md');
@@ -19,7 +19,7 @@ Before(async (I) => {
   I.wait(2);
   I.amOnPage('/#/favorites');
   I.dontSeeElement('.favorite-not-found');
-  const favoritedRestaurantName = await getFavoritedRestaurantNames(I);
+  const favoritedRestaurantName = await getFirstRestaurantNames(I);
   assert.strictEqual(favoritedRestaurantName, testRestaurantNames);
 });
 
@@ -46,7 +46,7 @@ const getRestaurantDetailUrl = async (I) => {
   return res;
 };
 
-const getFavoritedRestaurantNames = async (I) => {
+const getFirstRestaurantNames = async (I) => {
   const names = await I.executeScript(function() {
     const restaurantListElm = document.querySelector('restaurant-list');
     const restaurantCardElm = restaurantListElm.shadowRoot.querySelector('restaurant-card');

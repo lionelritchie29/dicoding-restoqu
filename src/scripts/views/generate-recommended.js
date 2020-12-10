@@ -12,8 +12,8 @@ const generateRecommended = () => {
             <img
               loading="lazy"
               src="./images/others/${rec.image}"
-              width="356"
-              height="452"
+              width="387"
+              height="493"
               alt="${rec.name}"
             />
           </div>

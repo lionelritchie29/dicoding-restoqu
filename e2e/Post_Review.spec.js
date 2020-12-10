@@ -6,13 +6,13 @@ Feature('Post Review');
 
 Before(async (I) => {
   I.amOnPage('/');
-  I.waitForElement('.recommended-image', 5);
+  I.dontSeeElement('img[alt="recommended skeleton"]');
   const url = await getRestaurantDetailUrl(I);
   I.amOnPage(url);
 });
 
 Scenario('Post a review to a restaurant', async (I) => {
-  I.waitForElement('review-list');
+  I.waitForElement('review-list', 5);
 
   await I.executeScript(function() {
     const reviewListElm = document.querySelector('review-list');
