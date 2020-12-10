@@ -14,6 +14,7 @@ const ImageminMozjpeg = require('imagemin-mozjpeg');
 const ImageminPngquant = require('imagemin-pngquant');
 
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -91,6 +92,9 @@ module.exports = {
           to: path.resolve(__dirname, 'dist/'),
         },
       ],
+    }),
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: 'defer',
     }),
     new FaviconsWebpackPlugin({
       logo: './src/public/images/chef.png',
