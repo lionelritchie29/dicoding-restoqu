@@ -5,8 +5,6 @@ import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.scss';
 import '../styles/footer.scss';
 import registerSw from '../scripts/utils/register-sw.js';
-import 'lazysizes';
-import 'lazysizes/plugins/parent-fit/ls.parent-fit.js';
 
 import navHtml from '../templates/nav-footer/nav.html';
 import footerHtml from '../templates/nav-footer/footer.html';
@@ -19,7 +17,7 @@ window.addEventListener('hashchange', () => {
   app.renderPage();
 });
 
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
   document.body.innerHTML = navHtml;
   document.body.innerHTML += '<main id="content-wrap"></main>';
   document.body.innerHTML += footerHtml;
