@@ -1,8 +1,8 @@
 /* eslint-disable linebreak-style */
 
-import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.scss';
 import '../styles/footer.scss';
+import 'regenerator-runtime'; /* for async await transpile */
 import registerSw from '../scripts/utils/register-sw.js';
 
 import navHtml from '../templates/nav-footer/nav.html';
