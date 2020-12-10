@@ -12,6 +12,7 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
 const ImageminPngquant = require('imagemin-pngquant');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
@@ -42,8 +43,11 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         exclude: [path.resolve(__dirname, 'src/styles/components')],
         use: [
+          // {
+          //   loader: 'style-loader',
+          // },
           {
-            loader: 'style-loader',
+            loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
@@ -89,6 +93,9 @@ module.exports = {
           to: path.resolve(__dirname, 'dist/'),
         },
       ],
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'dist/[name].[hash].css',
     }),
     new FaviconsWebpackPlugin({
       logo: './src/public/images/chef.png',
