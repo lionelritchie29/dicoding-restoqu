@@ -91,7 +91,9 @@ module.exports = {
         },
       ],
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash].css',
+    }),
     new FaviconsWebpackPlugin({
       logo: './src/public/images/chef.png',
       favicons: {
